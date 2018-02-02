@@ -18,7 +18,7 @@ public class DumbController {
     @Autowired
     private MeterRegistry meter;
 
-    @GetMapping("/hello")
+    @GetMapping("/dumb")
     public Mono<String> handle() {
         return Flux.range(0, 65536)
                 .map(this::calculate)

@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.M7'
+		springBootVersion = '2.0.0.RC1'
 	}
 	repositories {
 		mavenCentral()
@@ -13,7 +13,7 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
@@ -27,12 +27,12 @@ repositories {
 	maven { url "https://repo.spring.io/milestone" }
 }
 
-
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-starter-webflux')
-	compile group: 'io.micrometer', name: 'micrometer-core', version: '1.0.0-rc.7'
+	compile('io.micrometer:micrometer-core')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('io.projectreactor:reactor-test')
+	testCompile('com.github.tomakehurst:wiremock:2.14.0')
 }
